@@ -10,23 +10,23 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity6 extends AppCompatActivity {
     WebView webView;
     ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu);
-        webView = (WebView) findViewById(R.id.webView);
-        progressBar=(ProgressBar) findViewById(R.id.progressBar);
+        setContentView(R.layout.activity_main6);
+        webView = (WebView) findViewById(R.id.webView6);
+        progressBar=(ProgressBar) findViewById(R.id.progressBar6);
         webView.setWebViewClient(new myWebclient());
         webView.getSettings().setJavaScriptEnabled(true);
-        webView.loadUrl("https://sipbj.pu.go.id/2022");
+        webView.loadUrl("https://siki.pu.go.id/");
 
     }
 
-    public class myWebclient extends WebViewClient{
+    public class myWebclient extends WebViewClient {
         @Override
         public void onPageFinished(WebView view, String url) {
             super.onPageFinished(view, url);

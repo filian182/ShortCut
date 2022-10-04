@@ -5,28 +5,47 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
+import android.widget.TextView;
+import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity7 extends AppCompatActivity {
     WebView webView;
     ProgressBar progressBar;
+
+
+    Toast toast; // instance dari kelas Toast
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu);
-        webView = (WebView) findViewById(R.id.webView);
-        progressBar=(ProgressBar) findViewById(R.id.progressBar);
+        setContentView(R.layout.activity_main7);
+        webView = (WebView) findViewById(R.id.webView7);
+        progressBar=(ProgressBar) findViewById(R.id.progressBar7);
         webView.setWebViewClient(new myWebclient());
         webView.getSettings().setJavaScriptEnabled(true);
-        webView.loadUrl("https://sipbj.pu.go.id/2022");
+        webView.loadUrl("");
+
+        LayoutInflater inflater = getLayoutInflater();
+        View layout = inflater.inflate(R.layout.custom_toast,
+                (ViewGroup)findViewById(R.id.toast_layout));
+
+        TextView text =layout.findViewById(R.id.t1);
+        text.setText("Maaf, Layanan belum tersedia.");
+
+        toast = new Toast(getApplicationContext());
+        toast.setDuration(Toast.LENGTH_LONG);
+        toast.setView(layout);
+
 
     }
 
-    public class myWebclient extends WebViewClient{
+    public class myWebclient extends WebViewClient {
         @Override
         public void onPageFinished(WebView view, String url) {
             super.onPageFinished(view, url);
